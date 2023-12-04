@@ -52,6 +52,10 @@ class Main(QDialog):
             self.button_reciprocal_clicked()
         elif sign=="+/-":
             self.button_reverse_clicked()
+        elif sign=="x^2":
+            self.button_square_clicked()
+        elif sign=="x^(1/2)":
+            self.button_root_clicked()
 
 
 
@@ -68,12 +72,22 @@ class Main(QDialog):
 
     def button_reciprocal_clicked(self):
         equation_solution = self.equation_solution.text()
-        result = 1 / int(equation_solution)
+        result = 1 / float(equation_solution)
+        self.equation_solution.setText(str(result))
+    
+    def button_square_clicked(self):
+        equation_solution = self.equation_solution.text()
+        result = float(equation_solution)**2
+        self.equation_solution.setText(str(result))
+
+    def button_root_clicked(self):
+        equation_solution = self.equation_solution.text()
+        result = float(equation_solution)**(1/2)
         self.equation_solution.setText(str(result))
     
     def button_reverse_clicked(self):
         equation_solution = self.equation_solution.text()
-        result = -int(equation_solution)
+        result = -float(equation_solution)
         self.equation_solution.setText(str(result))
 
     def button_equal_clicked(self):
