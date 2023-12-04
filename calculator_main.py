@@ -50,6 +50,9 @@ class Main(QDialog):
             self.button_clear_clicked()
         elif sign=="1/x":
             self.button_reciprocal_clicked()
+        elif sign=="+/-":
+            self.button_reverse_clicked()
+
 
 
         # 나머지는 출력란에 추가
@@ -66,6 +69,11 @@ class Main(QDialog):
     def button_reciprocal_clicked(self):
         equation_solution = self.equation_solution.text()
         result = 1 / int(equation_solution)
+        self.equation_solution.setText(str(result))
+    
+    def button_reverse_clicked(self):
+        equation_solution = self.equation_solution.text()
+        result = -int(equation_solution)
         self.equation_solution.setText(str(result))
 
     def button_equal_clicked(self):
