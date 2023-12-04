@@ -46,6 +46,8 @@ class Main(QDialog):
             self.button_equal_clicked()
         elif sign=="<":
             self.button_backspace_clicked()
+        elif sign=="C" or sign=="CE":
+            self.button_clear_clicked()
 
 
         # 나머지는 출력란에 추가
@@ -65,7 +67,6 @@ class Main(QDialog):
         self.equation_solution.setText(str(solution))
 
     def button_clear_clicked(self):
-        self.equation_solution.setText("")
         self.equation_solution.setText("")
 
     def button_backspace_clicked(self):
