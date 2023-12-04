@@ -48,6 +48,8 @@ class Main(QDialog):
             self.button_backspace_clicked()
         elif sign=="C" or sign=="CE":
             self.button_clear_clicked()
+        elif sign=="1/x":
+            self.button_reciprocal_clicked()
 
 
         # 나머지는 출력란에 추가
@@ -60,6 +62,11 @@ class Main(QDialog):
         equation_solution = self.equation_solution.text()
         equation_solution += operation
         self.equation_solution.setText(equation_solution)
+
+    def button_reciprocal_clicked(self):
+        equation_solution = self.equation_solution.text()
+        result = 1 / int(equation_solution)
+        self.equation_solution.setText(str(result))
 
     def button_equal_clicked(self):
         equation_solution = self.equation_solution.text()
