@@ -31,6 +31,8 @@ class Main(QDialog):
             button_list[i] = QPushButton(button_signs[i])
             button_list[i].clicked.connect(lambda state, sign = button_signs[i]: self.sign_button_clicked(sign))
 
+            layout_sign.addWidget(button_list[i], i//4, i%4)
+
         ### 각 레이아웃을 main_layout 레이아웃에 추가
         main_layout.addLayout(layout_equation_solution)
         main_layout.addLayout(layout_sign)
