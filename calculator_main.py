@@ -14,16 +14,23 @@ class Main(QDialog):
         layout_equation_solution = QFormLayout()
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        label_equation = QLabel("Equation: ")
-        label_solution = QLabel("Solution: ")
-        self.equation = QLineEdit("")
-        self.solution = QLineEdit("")
+        label_equation_solution = QLabel("E/S: ")
+        self.equation_solution = QLineEdit("")
 
         ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
-        layout_equation_solution.addRow(label_equation, self.equation)
-        layout_equation_solution.addRow(label_solution, self.solution)
+        layout_equation_solution.addRow(label_equation_solution, self.equation_solution)
 
-        ### 숫자 버튼 생성하고, layout_sign 레이아웃에 추가
+        # ### + 예시
+        # button_plus = QPushButtson("+")
+        # button_plus.clicked.connect(lambda state, operation = "+": self.button_operation_clicked(operation))
+        # layout_operation.addWidget(button_plus)
+
+        ### = 
+        button_equal = QPushButton("=")
+        button_equal.clicked.connect(self.button_equal_clicked)
+        layout_clear_equal.addWidget(button_clear)
+
+        ### 숫자 버튼 생성하고, layout_number 레이아웃에 추가
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
         button_signs = ["%", "CE", "C", "<", "1/x", "x^2", "x^(1/2)", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ".", "="]
         button_list = {}
@@ -43,29 +50,29 @@ class Main(QDialog):
     #################
     ### functions ###
     #################
-    def number_button_clicked(self, num):
-        equation = self.equation.text()
-        equation += str(num)
-        self.equation.setText(equation)
+    def sign_button_clicked(self, sign):
+        equation_solution = self.equation_solution.text()
+        equation_solution += sign
+        self.equation_solution.setText(equation_solution)
 
     def button_operation_clicked(self, operation):
-        equation = self.equation.text()
-        equation += operation
-        self.equation.setText(equation)
+        equation_solution = self.equation_solution.text()
+        equation_solution += operation
+        self.equation_solution.setText(equation_solution)
 
     def button_equal_clicked(self):
-        equation = self.equation.text()
-        solution = eval(equation)
-        self.solution.setText(str(solution))
+        equation_solution = self.equation_solution.text()
+        solution = eval(equation_solution)
+        self.equation_solution.setText(str(solution))
 
     def button_clear_clicked(self):
-        self.equation.setText("")
-        self.solution.setText("")
+        self.equation_solution.setText("")
+        self.equation_solution.setText("")
 
     def button_backspace_clicked(self):
-        equation = self.equation.text()
-        equation = equation[:-1]
-        self.equation.setText(equation)
+        equation_solution = self.equation_solution.text()
+        equation_solution = equation_solution[:-1]
+        self.equation_solution.setText(equation_solution)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
