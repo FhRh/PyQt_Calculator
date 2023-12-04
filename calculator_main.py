@@ -58,7 +58,7 @@ class Main(QDialog):
             self.button_root_clicked()
 
         #이항 연산자라면 숫자 필드 지우고 정보 저장
-        elif sign=="%" or sign=="+" or sign=="-" or sign=="*" or sign=="-":
+        elif sign=="%" or sign=="+" or sign=="-" or sign=="*" or sign=="/":
             self.button_operation_clicked(sign)
 
         # 나머지는 출력란에 추가
