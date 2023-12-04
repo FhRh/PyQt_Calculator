@@ -57,7 +57,9 @@ class Main(QDialog):
         elif sign=="x^(1/2)":
             self.button_root_clicked()
 
-
+        #이항 연산자라면 숫자 필드 지우고 정보 저장
+        elif sign=="%" or sign=="+" or sign=="-" or sign=="*" or sign=="-":
+            self.button_operation_clicked(sign)
 
         # 나머지는 출력란에 추가
         else :
@@ -66,9 +68,29 @@ class Main(QDialog):
             self.equation_solution.setText(equation_solution)
 
     def button_operation_clicked(self, operation):
-        equation_solution = self.equation_solution.text()
-        equation_solution += operation
-        self.equation_solution.setText(equation_solution)
+        num = self.equation_solution.text()
+        self.previous_operand = float(num)
+        self.operation = operation
+        self.equation_solution.setText("")
+        #숫자 가져와서 어디에 저장해야하는데 
+
+    def button_equal_clicked(self):
+        num = self.equation_solution.text()
+        current_operand = float(num)
+        previous_operand = self.previous_operand
+        operation = self.operation
+        result = None
+        if operation=="%":
+            result = previous_operand % current_operand
+        elif operation=="+":
+            result = previous_operand + current_operand
+        elif operation=="-":
+            result = previous_operand - current_operand
+        elif operation=="*":
+            result = previous_operand * current_operand
+        elif operation=="/":
+            result = previous_operand / current_operand
+        self.print_result(result)
 
     def button_reciprocal_clicked(self):
         equation_solution = self.equation_solution.text()
@@ -89,11 +111,6 @@ class Main(QDialog):
         equation_solution = self.equation_solution.text()
         result = -float(equation_solution)
         self.print_result(result)
-
-    def button_equal_clicked(self):
-        equation_solution = self.equation_solution.text()
-        solution = eval(equation_solution)
-        self.print_result(solution)
 
     def button_clear_clicked(self):
         self.equation_solution.setText("")
