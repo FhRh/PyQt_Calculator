@@ -1,2 +1,2 @@
-# PyQt_Calculator
-Calculator with PyQt
+# PyQt-calculator
+This is Caculator with python
