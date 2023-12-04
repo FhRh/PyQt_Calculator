@@ -41,9 +41,15 @@ class Main(QDialog):
     ### functions ###
     #################
     def sign_button_clicked(self, sign):
-        equation_solution = self.equation_solution.text()
-        equation_solution += sign
-        self.equation_solution.setText(equation_solution)
+        # = 또는 단항 연산자라면 결과값 생성
+        if sign=="=":
+            self.button_equal_clicked()
+
+        # 나머지는 출력란에 추가
+        else :
+            equation_solution = self.equation_solution.text()
+            equation_solution += sign
+            self.equation_solution.setText(equation_solution)
 
     def button_operation_clicked(self, operation):
         equation_solution = self.equation_solution.text()
