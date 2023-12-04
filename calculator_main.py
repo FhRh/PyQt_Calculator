@@ -27,7 +27,7 @@ class Main(QDialog):
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
         button_signs = ["%", "CE", "C", "<", "1/x", "x^2", "x^(1/2)", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ".", "="]
         button_list = {}
-        for number in range(0, 24):
+        for i in range(0, 24):
             button_list[i] = QPushButton(button_signs[i])
             button_list[i].clicked.connect(lambda state, sign = button_signs[i]: self.sign_button_clicked(sign))
 
