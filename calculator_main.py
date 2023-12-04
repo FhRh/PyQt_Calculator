@@ -22,7 +22,7 @@ class Main(QDialog):
 
         ### 숫자 버튼 생성하고, layout_number 레이아웃에 추가
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
-        button_signs = ["%", "CE", "C", "<", "1/x", "x^2", "x^(1/2)", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ".", "="]
+        button_signs = ["%", "CE", "C", "<", "1/x", "x^2", "x^(1/2)", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ".", "="]
         button_list = {}
         for i in range(0, 24):
             button_list[i] = QPushButton(button_signs[i])
@@ -44,6 +44,9 @@ class Main(QDialog):
         # = 또는 단항 연산자라면 결과값 생성
         if sign=="=":
             self.button_equal_clicked()
+        elif sign=="<":
+            self.button_backspace_clicked()
+
 
         # 나머지는 출력란에 추가
         else :
