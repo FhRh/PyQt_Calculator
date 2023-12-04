@@ -73,27 +73,27 @@ class Main(QDialog):
     def button_reciprocal_clicked(self):
         equation_solution = self.equation_solution.text()
         result = 1 / float(equation_solution)
-        self.equation_solution.setText(str(result))
+        self.print_result(result)
     
     def button_square_clicked(self):
         equation_solution = self.equation_solution.text()
         result = float(equation_solution)**2
-        self.equation_solution.setText(str(result))
+        self.print_result(result)
 
     def button_root_clicked(self):
         equation_solution = self.equation_solution.text()
         result = float(equation_solution)**(1/2)
-        self.equation_solution.setText(str(result))
+        self.print_result(result)
     
     def button_reverse_clicked(self):
         equation_solution = self.equation_solution.text()
         result = -float(equation_solution)
-        self.equation_solution.setText(str(result))
+        self.print_result(result)
 
     def button_equal_clicked(self):
         equation_solution = self.equation_solution.text()
         solution = eval(equation_solution)
-        self.equation_solution.setText(str(solution))
+        self.print_result(solution)
 
     def button_clear_clicked(self):
         self.equation_solution.setText("")
@@ -102,6 +102,18 @@ class Main(QDialog):
         equation_solution = self.equation_solution.text()
         equation_solution = equation_solution[:-1]
         self.equation_solution.setText(equation_solution)
+
+    def print_result(self, number):
+        # float를 문자열로 변환
+        str_number = str(number)
+        
+        # 소수점 이하가 .0일 경우 정수 부분만 반환
+        if str_number.endswith('.0'):
+            result = int(number)
+        else:
+            result = number
+        
+        self.equation_solution.setText(str(result))
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
