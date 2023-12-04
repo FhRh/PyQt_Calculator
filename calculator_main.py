@@ -20,16 +20,6 @@ class Main(QDialog):
         ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
         layout_equation_solution.addRow(label_equation_solution, self.equation_solution)
 
-        # ### + 예시
-        # button_plus = QPushButtson("+")
-        # button_plus.clicked.connect(lambda state, operation = "+": self.button_operation_clicked(operation))
-        # layout_operation.addWidget(button_plus)
-
-        ### = 
-        button_equal = QPushButton("=")
-        button_equal.clicked.connect(self.button_equal_clicked)
-        layout_clear_equal.addWidget(button_clear)
-
         ### 숫자 버튼 생성하고, layout_number 레이아웃에 추가
         ### 각 숫자 버튼을 클릭했을 때, 숫자가 수식창에 입력 될 수 있도록 시그널 설정
         button_signs = ["%", "CE", "C", "<", "1/x", "x^2", "x^(1/2)", "÷", "7", "8", "9", "×", "4", "5", "6", "-", "1", "2", "3", "+", "+/-", "0", ".", "="]
