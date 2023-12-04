@@ -1,6 +1,7 @@
 # PyQt-GUI-calculator
 ### This is Caculator with python    
-![image](https://github.com/FhRh/PyQt-GUI-calculator/assets/48638700/213f1006-8763-4ee1-88af-91629ca21ee9)
+![image](https://github.com/FhRh/PyQt_Calculator/assets/48638700/2917f7b7-ffc7-4690-bb84-5fdc88d54c70)
+
 
 
 ## 🎯Goals
